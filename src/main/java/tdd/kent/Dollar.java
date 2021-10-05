@@ -2,7 +2,7 @@ package tdd.kent;
 
 public class Dollar {
 
-    private int amount;
+    private final int amount;
 
     public Dollar(int amount) {
 
@@ -15,6 +15,7 @@ public class Dollar {
     }
 
     public boolean equals(Object object) {
+
         Dollar dollar = (Dollar) object;
         return amount == dollar.amount;
     }

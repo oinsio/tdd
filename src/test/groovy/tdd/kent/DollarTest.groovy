@@ -8,17 +8,13 @@ class DollarTest extends Specification {
 
         given:
             def five = new Dollar(5)
-        when:
-            Dollar product = five.times(2)
-        then:
-            product.amount == 10
-        when:
-            product = five.times(3)
-        then:
-            product.amount == 15
+        expect:
+            new Dollar(10) == five.times(2)
+            new Dollar(15) == five.times(3)
     }
 
     def "should be able to equal"() {
+
         expect:
             new Dollar(5) == new Dollar(5)
         and:
