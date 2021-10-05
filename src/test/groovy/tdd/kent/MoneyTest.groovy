@@ -13,4 +13,10 @@ class MoneyTest extends Specification {
             Money.franc(5) != Money.franc(6)
             !Money.franc(5).equals(Money.dollar(5))
     }
+
+    def "should provide currency name"() {
+        expect:
+            "USD" == Money.dollar(1).currency()
+            "CHF" == Money.franc(1).currency()
+    }
 }
