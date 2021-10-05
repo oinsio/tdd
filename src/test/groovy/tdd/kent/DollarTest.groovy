@@ -7,9 +7,9 @@ class DollarTest extends Specification {
     def "should be multiplicative"() {
 
         given:
-            def five = new Dollar(5)
+            def five = Money.dollar(5)
         expect:
-            new Dollar(10) == five.times(2)
-            new Dollar(15) == five.times(3)
+            Money.dollar(10) == five.times(2)
+            Money.dollar(15) == five.times(3)
     }
 }

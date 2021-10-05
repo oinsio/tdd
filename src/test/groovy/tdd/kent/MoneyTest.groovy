@@ -7,10 +7,10 @@ class MoneyTest extends Specification {
     def "should be able to equal"() {
 
         expect:
-            new Dollar(5) == new Dollar(5)
-            new Dollar(5) != new Dollar(6)
-            new Franc(5) == new Franc(5)
-            new Franc(5) != new Franc(6)
-            !new Franc(5).equals(new Dollar(5))
+            Money.dollar(5) == Money.dollar(5)
+            Money.dollar(5) != Money.dollar(6)
+            Money.franc(5) == Money.franc(5)
+            Money.franc(5) != Money.franc(6)
+            !Money.franc(5).equals(Money.dollar(5))
     }
 }
