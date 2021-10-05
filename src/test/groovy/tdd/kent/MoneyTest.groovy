@@ -19,4 +19,9 @@ class MoneyTest extends Specification {
             "USD" == Money.dollar(1).currency()
             "CHF" == Money.franc(1).currency()
     }
+
+    def "should equal different classes"() {
+        expect:
+            new Money(10, "CHF") == new Franc(10, "CHF")
+    }
 }
