@@ -1,7 +1,7 @@
 plugins {
     id 'groovy'
     id 'jacoco'
-    id 'info.solidsoft.pitest' version '1.7.0'
+    id 'info.solidsoft.pitest' version "${pitestVersion}"
 }
 
 repositories {
@@ -9,8 +9,8 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.codehaus.groovy:groovy-all:3.0.8'
-    testImplementation 'org.spockframework:spock-core:2.0-groovy-3.0'
+    testImplementation "org.codehaus.groovy:groovy-all:${groovyVersion}"
+    testImplementation "org.spockframework:spock-core:${spockVersion}"
 }
 
 test {
@@ -24,7 +24,7 @@ jacocoTestReport {
 }
 
 pitest {
-    junit5PluginVersion = '0.15'
+    junit5PluginVersion = "${junitPluginVersion}"
     targetClasses = ['tdd.kent.*']
     timestampedReports = false
 }
