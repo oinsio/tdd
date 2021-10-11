@@ -13,4 +13,21 @@ class BankTest extends Specification {
         then:
             Money.dollar(1) == result
     }
+
+    def "should reduce money with different currency"() {
+
+        given:
+            def bank = new Bank()
+            bank.addRate("CHF", "USD", 2)
+        when:
+            def result = bank.reduce(Money.franc(2), "USD")
+        then:
+            Money.dollar(1) == result
+    }
+
+    def "should use identity rate for the same currency"() {
+
+        expect:
+            new Bank().rate("USD", "USD") == 1
+    }
 }

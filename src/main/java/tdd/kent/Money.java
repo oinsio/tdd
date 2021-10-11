@@ -1,5 +1,7 @@
 package tdd.kent;
 
+import java.util.Objects;
+
 public class Money implements Expression {
 
     protected int amount;
@@ -48,8 +50,9 @@ public class Money implements Expression {
         return new Sum(this, addend);
     }
 
-    public Money reduce(String to) {
+    public Money reduce(Bank bank, String to) {
 
-        return this;
+        int rate = bank.rate(currency, to);
+        return new Money(amount / rate, to);
     }
 }
