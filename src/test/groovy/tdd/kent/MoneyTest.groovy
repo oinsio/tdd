@@ -38,25 +38,4 @@ class MoneyTest extends Specification {
             five == sum.augend
             five == sum.addend
     }
-
-    def "should test reduce Sum"() {
-
-        given:
-            def sum = new Sum(Money.dollar(3), Money.dollar(4))
-            def bank = new Bank()
-        when:
-            def result = bank.reduce(sum, "USD")
-        then:
-            Money.dollar(7) == result
-    }
-
-    def "should reduce"() {
-
-        given:
-            def bank = new Bank()
-        when:
-            def result = bank.reduce(Money.dollar(1), "USD")
-        then:
-            Money.dollar(1) == result
-    }
 }
