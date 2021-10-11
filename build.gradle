@@ -17,6 +17,9 @@ test {
     useJUnitPlatform()
     finalizedBy jacocoTestReport
     finalizedBy 'pitest'
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
 }
 
 jacocoTestReport {
