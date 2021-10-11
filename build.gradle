@@ -1,6 +1,7 @@
 plugins {
     id 'groovy'
     id 'jacoco'
+    id 'info.solidsoft.pitest' version '1.7.0'
 }
 
 repositories {
@@ -15,8 +16,15 @@ dependencies {
 test {
     useJUnitPlatform()
     finalizedBy jacocoTestReport
+    finalizedBy 'pitest'
 }
 
 jacocoTestReport {
     dependsOn test
+}
+
+pitest {
+    junit5PluginVersion = '0.15'
+    targetClasses = ['tdd.kent.*']
+    timestampedReports = false
 }
