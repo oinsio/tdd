@@ -30,4 +30,17 @@ class BankTest extends Specification {
         expect:
             new Bank().rate("USD", "USD") == 1
     }
+
+    def "should add mixed currency"() {
+
+        given:
+            Money fiveBucks = Money.dollar(5)
+            Money tenFrancs = Money.franc(10)
+            def bank = new Bank()
+            bank.addRate("CHF", "USD", 2)
+        when:
+            def result = bank.reduce(fiveBucks.plus(tenFrancs), "USD")
+        then:
+            result == Money.dollar(10)
+    }
 }

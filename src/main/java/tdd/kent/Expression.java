@@ -2,5 +2,7 @@ package tdd.kent;
 
 public interface Expression {
 
-    public Money reduce(Bank bank, String to);
+    Money reduce(Bank bank, String to);
+
+    Expression plus(Expression addend);
 }
