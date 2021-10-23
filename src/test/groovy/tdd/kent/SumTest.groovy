@@ -28,4 +28,18 @@ class SumTest extends Specification {
         then:
             Money.dollar(15) == result
     }
+
+    def "should multiply money"() {
+
+        given:
+            Expression fiveBucks = Money.dollar(5)
+            Expression tenFrancs = Money.franc(10)
+            def bank = new Bank()
+            bank.addRate("CHF", "USD", 2)
+        when:
+            Expression sum = new Sum(fiveBucks, tenFrancs).times(2)
+            def result = bank.reduce(sum, "USD")
+        then:
+            Money.dollar(20) == result
+    }
 }

@@ -22,4 +22,9 @@ public class Sum implements Expression {
 
         return new Sum(this, addend);
     }
+
+    public Expression times(int multiplier) {
+
+        return new Sum(augend.times(multiplier), addend.times(multiplier));
+    }
 }
