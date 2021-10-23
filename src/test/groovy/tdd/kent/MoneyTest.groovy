@@ -38,4 +38,14 @@ class MoneyTest extends Specification {
             five == sum.augend
             five == sum.addend
     }
+
+    def "should return amount and currency"() {
+
+        given:
+            def oneDollar = Money.dollar(1)
+            def oneFranc = Money.franc(1)
+        expect:
+            oneDollar.toString() == "1 USD"
+            oneFranc.toString() == "1 CHF"
+    }
 }
