@@ -9,8 +9,10 @@ repositories {
 }
 
 dependencies {
-    testImplementation "org.codehaus.groovy:groovy-all:${groovyVersion}"
-    testImplementation "org.spockframework:spock-core:${spockVersion}"
+    implementation platform("org.apache.groovy:groovy-bom:${groovyVersion}")
+    implementation "org.apache.groovy:groovy"
+    testImplementation platform("org.spockframework:spock-bom:${spockVersion}")
+    testImplementation "org.spockframework:spock-core"
 }
 
 test {
